@@ -13,21 +13,17 @@ tests = [
     (lambda x: 3-4*x**2, 2, -16),
 ]
 
-@pytest.mark.points(5)
 def t_derive(n):
     for f, x, expected in tests[:n]:
         actual = derive(f, x)
         assert abs(actual - expected) < .01, "Expected %s, got %s; %s" % (expected, actual, f)
-
-@pytest.mark.points(1)
+        
 def test_derive():
     t_derive(1)
 
-@pytest.mark.points(1)
 def test_derive2():
     t_derive(2)
 
-@pytest.mark.points(1)
 def test_derive3():
     t_derive(len(tests))
 
